@@ -3,14 +3,18 @@ from test_framework import generic_test
 
 def reverse(x: int) -> int:
     # TODO - you fill in here.
-    result  = 0
-    remains = abs(x)
-    while remains>0:
-        result = result*10 + remains%10
-        remains = remains//10
+    sign = 1
     if x<0:
-        result = -result
-    return result
+        sign = -1
+    x = x*sign
+    xString = str(x)
+    i = len(xString) - 1
+    reverseX = ''
+        
+    while i>=0:
+        reverseX = reverseX + xString[i]
+        i = i - 1
+    return sign*int(reverseX)
 
 
 if __name__ == '__main__':
