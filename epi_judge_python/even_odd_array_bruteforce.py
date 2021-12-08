@@ -9,16 +9,22 @@ from test_framework.test_utils import enable_executor_hook
 
 def even_odd(A: List[int]) -> None:
     # TODO - you fill in here.
-    i = 0 # first of list
-    j = len(A) - 1# last of list
+    i = 0
+    j = len(A) - 1
     while i < j:
-        if A[i]%2: # A_i odd, switch A_i A_j
-            A[i],A[j] = A[j],A[i]
-            j = j - 1
-        else: # A_i even
+        if (A[i]%2)&(A[j]%2): #both odd
+            j = j-1
+        elif (A[i]%2)&~(A[j]%2): # i odd j even
+            A[i], A[j] = A[j], A[i]
             i = i + 1
-            
-            
+            j = j - 1
+        elif ~(A[i]%2)&(A[j]%2): # i even j odd
+            i = i + 1
+            j = j - 1
+        else: #i even j even
+            i = i + 1
+
+
 @enable_executor_hook
 def even_odd_wrapper(executor, A):
     before = collections.Counter(A)
