@@ -5,6 +5,7 @@ from test_framework.test_failure import PropertyName
 
 Rect = collections.namedtuple('Rect', ('x', 'y', 'width', 'height'))
 
+# O(1)
 
 def intersect_rectangle(r1: Rect, r2: Rect) -> Rect:
     # TODO - you fill in here.
