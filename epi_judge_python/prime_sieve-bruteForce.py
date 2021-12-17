@@ -11,7 +11,14 @@ def generate_primes(n: int) -> List[int]:
     if n == 2:
         return [2]
     primes = [2]
-
+    for i in range(3,n+1):
+        prime_flag = 1
+        for j in primes:
+            if i%j == 0:
+                prime_flag = 0
+                break
+        if prime_flag:
+            primes.append(i)
                 
     return primes
 
